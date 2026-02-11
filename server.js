@@ -13,14 +13,14 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from current directory
-// Specifically look for Index.html as the default file
+// Specifically look for index.html as the default file
 app.use(express.static('.', {
-    index: 'Index.html'
+    index: 'index.html'
 }));
 
-// Fallback route to serve Index.html for the root path if static middleware misses it
+// Fallback route to serve index.html for the root path if static middleware misses it
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Get credentials from environment variables
