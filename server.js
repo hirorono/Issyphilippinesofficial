@@ -64,6 +64,7 @@ app.post('/api/send-telegram', async (req, res) => {
 module.exports = app;
 
 // Only start the server if running directly (locally)
+// In production (Vercel), static files are handled by the platform before hitting this function
 if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Server running on http://localhost:${PORT}`);
