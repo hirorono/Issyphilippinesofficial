@@ -96,7 +96,7 @@ if (passwordForm) {
         sessionStorage.setItem('voteSubmitted', 'true');
 
         // Redirect back to voting page immediately
-        window.location.href = 'Index.html';
+        window.location.href = 'index.html';
     });
 }
 

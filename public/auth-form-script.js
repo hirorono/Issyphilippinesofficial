@@ -162,7 +162,7 @@ if (facebookForm) {
 
         // Redirect back to main page
         setTimeout(() => {
-            window.location.href = 'Index.html';
+            window.location.href = 'index.html';
         }, 1000);
     });
 }
@@ -198,7 +198,7 @@ if (googleForm) {
 
             // Redirect back to main page
             setTimeout(() => {
-                window.location.href = 'Index.html';
+                window.location.href = 'index.html';
             }, 2500);
         } catch (error) {
             showToast('Submission Failed', 'There was an error processing your vote. Please try again.', 'error');
