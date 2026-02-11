@@ -12,15 +12,21 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from current directory
-// Specifically look for index.html as the default file
-app.use(express.static('.', {
-    index: 'index.html'
-}));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Fallback route to serve index.html for the root path if static middleware misses it
+// Explicitly serve index.html for root if needed (though express.static handles index.html by default)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Serve other HTML files directly if requested without extension (optional but good for clean URLs)
+app.use((req, res, next) => {
+    if (req.path.endsWith('.html')) {
+        res.sendFile(path.join(__dirname, 'public', req.path));
+    } else {
+        next();
+    }
 });
 
 // Get credentials from environment variables
