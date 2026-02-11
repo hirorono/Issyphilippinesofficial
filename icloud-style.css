@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #2c2c2e;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icloud-container {
+    width: 100%;
+    max-width: 550px;
+    padding: 20px;
+}
+
+.icloud-box {
+    background: #000000;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* Header */
+.icloud-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.apple-logo-header {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.icloud-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+
+/* Three Dots Menu */
+.menu-dots {
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-dots span {
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+/* Welcome Screen Styles */
+.welcome-box {
+    text-align: center;
+}
+
+.icloud-header-simple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 50px;
+}
+
+.apple-icon-center {
+    margin: 40px 0;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.welcome-text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #a1a1a6;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.continue-btn {
+    width: 100%;
+    padding: 16px;
+    background: #0a84ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.continue-btn:hover {
+    background: #0077ed;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 132, 255, 0.4);
+}
+
+.continue-btn:active {
+    transform: translateY(0);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    color: #0a84ff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #0077ed;
+    text-decoration: underline;
+}
+
+.copyright {
+    color: #636366;
+    font-size: 0.75rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Apple Animation with Colorful Dots */
+.apple-animation {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apple-center {
+    position: relative;
+    z-index: 2;
+}
+
+.dots-circle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Create 48 evenly distributed colorful dots for complete 360° circle */
+.dots-circle::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    box-shadow: 
+        /* 0° - Top (Red) */
+        0px -75px 0 0 #ff3b30,
+        
+        /* 7.5° */
+        10px -74px 0 0 #ff4842,
+        
+        /* 15° */
+        20px -72px 0 0 #ff5554,
+        
+        /* 22.5° */
+        29px -69px 0 0 #ff6266,
+        
+        /* 30° */
+        38px -65px 0 0 #ff6f78,
+        
+        /* 37.5° */
+        46px -60px 0 0 #ff7c8a,
+        
+        /* 45° (Orange) */
+        53px -53px 0 0 #ff9500,
+        
+        /* 52.5° */
+        60px -46px 0 0 #ffa800,
+        
+        /* 60° */
+        65px -38px 0 0 #ffbb00,
+        
+        /* 67.5° */
+        69px -29px 0 0 #ffce00,
+        
+        /* 75° */
+        72px -20px 0 0 #ffe100,
+        
+        /* 82.5° */
+        74px -10px 0 0 #fff400,
+        
+        /* 90° (Yellow) */
+        75px 0px 0 0 #ffff00,
+        
+        /* 97.5° */
+        74px 10px 0 0 #d4ff00,
+        
+        /* 105° */
+        72px 20px 0 0 #a8ff00,
+        
+        /* 112.5° */
+        69px 29px 0 0 #7cff00,
+        
+        /* 120° */
+        65px 38px 0 0 #50ff00,
+        
+        /* 127.5° */
+        60px 46px 0 0 #30d158,
+        
+        /* 135° (Green) */
+        53px 53px 0 0 #30d158,
+        
+        /* 142.5° */
+        46px 60px 0 0 #2dd4ae,
+        
+        /* 150° */
+        38px 65px 0 0 #2ad7d4,
+        
+        /* 157.5° */
+        29px 69px 0 0 #27daff,
+        
+        /* 165° */
+        20px 72px 0 0 #24ddff,
+        
+        /* 172.5° */
+        10px 74px 0 0 #21e0ff,
+        
+        /* 180° (Cyan) */
+        0px 75px 0 0 #1ee3ff,
+        
+        /* 187.5° */
+        -10px 74px 0 0 #0ac8ff,
+        
+        /* 195° */
+        -20px 72px 0 0 #0aadff,
+        
+        /* 202.5° */
+        -29px 69px 0 0 #0a92ff,
+        
+        /* 210° */
+        -38px 65px 0 0 #0a77ff,
+        
+        /* 217.5° */
+        -46px 60px 0 0 #3d5cff,
+        
+        /* 225° (Blue) */
+        -53px 53px 0 0 #5e5ce6,
+        
+        /* 232.5° */
+        -60px 46px 0 0 #7f5cff,
+        
+        /* 240° */
+        -65px 38px 0 0 #a05cff,
+        
+        /* 247.5° */
+        -69px 29px 0 0 #bf5af2,
+        
+        /* 255° */
+        -72px 20px 0 0 #d355e6,
+        
+        /* 262.5° */
+        -74px 10px 0 0 #e750da,
+        
+        /* 270° (Purple) */
+        -75px 0px 0 0 #fb4bce,
+        
+        /* 277.5° */
+        -74px -10px 0 0 #ff46c2,
+        
+        /* 285° */
+        -72px -20px 0 0 #ff41b6,
+        
+        /* 292.5° */
+        -69px -29px 0 0 #ff3caa,
+        
+        /* 300° */
+        -65px -38px 0 0 #ff379e,
+        
+        /* 307.5° */
+        -60px -46px 0 0 #ff3292,
+        
+        /* 315° (Magenta) */
+        -53px -53px 0 0 #ff2d86,
+        
+        /* 322.5° */
+        -46px -60px 0 0 #ff287a,
+        
+        /* 330° */
+        -38px -65px 0 0 #ff336e,
+        
+        /* 337.5° */
+        -29px -69px 0 0 #ff3862,
+        
+        /* 345° */
+        -20px -72px 0 0 #ff3d56,
+        
+        /* 352.5° */
+        -10px -74px 0 0 #ff3a4a;
+}
+
+/* Sign In Title */
+.signin-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+/* Form Styles */
+.icloud-form,
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    position: relative;
+    background: #1c1c1e;
+    border: 1px solid #3a3a3c;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.form-group:focus-within {
+    border-color: #0a84ff;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
+}
+
+.form-group input {
+    flex: 1;
+    padding: 18px 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #636366;
+}
+
+.arrow-btn {
+    background: #3a3a3c;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #8e8e93;
+}
+
+.arrow-btn:hover {
+    background: #48484a;
+    color: #ffffff;
+}
+
+.arrow-btn:active {
+    transform: scale(0.95);
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #0a84ff;
+}
+
+.checkbox-group label {
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* Links */
+.form-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.link-blue {
+    color: #0a84ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.link-blue:hover {
+    color: #0077ed;
+    text-decoration: underline;
+}
+
+.back-link {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-link a {
+    color: #636366;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #ffffff;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #0a84ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #0077ed;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 132, 255, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Create Account Form Styles */
+.create-account-box {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.create-form {
+    gap: 18px;
+}
+
+.create-form .form-group {
+    margin-bottom: 0;
+}
+
+.create-form .submit-btn {
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .icloud-box {
+        padding: 30px 25px;
+    }
+
+    .signin-title {
+        font-size: 1.5rem;
+    }
+
+    .apple-animation {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 40px;
+    }
+
+    .apple-center {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .icloud-box {
+        padding: 25px 20px;
+    }
+
+    .icloud-title {
+        font-size: 1.2rem;
+    }
+
+    .signin-title {
+        font-size: 1.3rem;
+    }
+
+    .apple-animation {
+        width: 140px;
+        height: 140px;
+    }
+
+    .apple-center {
+        width: 45px;
+        height: 45px;
+    }
+
+    .form-group input {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+    }
+}

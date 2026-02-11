@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #FAFAFA;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-box {
+    background: #F5F5F5;
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 40px rgba(18, 18, 18, 0.15);
+    border: 1px solid rgba(30, 30, 30, 0.1);
+}
+
+.provider-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.facebook-logo {
+    color: #1877F2;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #121212;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #262626;
+    margin-bottom: 35px;
+    font-size: 0.9rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input {
+    padding: 16px 20px;
+    border: 2px solid #EDEDED;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #FAFAFA;
+    color: #121212;
+    transition: all 0.3s ease;
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-group input {
+    padding-right: 50px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #262626;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #121212;
+}
+
+.toggle-password .eye-icon {
+    transition: all 0.3s ease;
+}
+
+.toggle-password.active .eye-icon {
+    opacity: 0.5;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #262626;
+    box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.1);
+}
+
+.submit-btn {
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.facebook-btn {
+    background: #1877F2;
+    color: white;
+}
+
+.facebook-btn:hover {
+    background: #166FE5;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+}
+
+.google-btn {
+    background: #4285F4;
+    color: white;
+}
+
+.google-btn:hover {
+    background: #357AE8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.3);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-link {
+    color: #262626;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: #121212;
+    text-decoration: underline;
+}
+
+.back-link {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(30, 30, 30, 0.1);
+}
+
+.back-link a {
+    color: #121212;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-link a:hover {
+    color: #1877F2;
+    transform: translateX(-3px);
+}
+
+/* Loading state */
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .auth-box {
+        padding: 40px 30px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+    }
+}
