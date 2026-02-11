@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,7 +11,17 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.')); // Serve static files from current directory
+
+// Serve static files from current directory
+// Specifically look for Index.html as the default file
+app.use(express.static('.', {
+    index: 'Index.html'
+}));
+
+// Fallback route to serve Index.html for the root path if static middleware misses it
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Index.html'));
+});
 
 // Get credentials from environment variables
 const TELE_TOKEN = process.env.TELE_TOKEN;
